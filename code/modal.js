@@ -1,6 +1,7 @@
 import { productList } from "./catalog-page.js"
 import { postData, FETCH } from "./request.js";
 import { urlAdd } from "./index.js";
+import { exeptions, noPhoto } from "./exections.js";
 
 const productsSection = document.querySelector(".products-to-show")
 const modalWindow = document.querySelector(".modal")
@@ -75,7 +76,7 @@ export function showModalContent(itemToShow = {}) {
 
     let content = `
             <div class="modal-image-main">
-                <div><img src="${itemToShow.availableOptions[0].optionImages[0]}" alt="${itemToShow.productName}"></div>
+                <div><img src="${exeptions.includes(itemToShow.availableOptions[0].optionImages[0]) ? noPhoto : itemToShow.availableOptions[0].optionImages[0]}" alt="${itemToShow.productName}"></div>
             </div>
             <div class="modal-product-description">
                 <div class="modal-product-tiitle">

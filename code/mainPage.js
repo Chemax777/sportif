@@ -1,6 +1,7 @@
 import { AJAX, FETCH, postData } from "./request.js";
 import { randomProduct } from "./methods/methods.js";
 import { url, urlAdd } from "./index.js"
+import { exeptions, noPhoto } from "./exections.js";
 
 let cartItemsQuantity = 0;
 let currentProduct;
@@ -46,7 +47,7 @@ function showRandomProducts(productsArr) {
     let card = `
         <div class="sale-products-card" data-product-id = "${el.id}">
           <div class="sale-products-card-img">
-            <img src="${el.availableOptions[0].optionImages[0]}" alt="${el.productName}">
+            <img src="${exeptions.includes(el.availableOptions[0].optionImages[0]) ? noPhoto : el.availableOptions[0].optionImages[0]}" alt="${el.productName}">
           </div>
           <div class="sale-products-card-name">${el.productName}</div>
           <div class="sale-products-card-stars">
@@ -146,7 +147,7 @@ function showModalContent(itemToShow = {}) {
 
   let content = `
             <div class="modal-image-main">
-                <div><img src="${itemToShow.availableOptions[0].optionImages[0]}" alt="${itemToShow.productName}"></div>
+                <div><img src="${exeptions.includes(itemToShow.availableOptions[0].optionImages[0]) ? noPhoto : itemToShow.availableOptions[0].optionImages[0] }" alt="${itemToShow.productName}"></div>
             </div>
             <div class="modal-product-description">
                 <div class="modal-product-tiitle">

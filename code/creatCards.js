@@ -1,12 +1,15 @@
+import { exeptions, noPhoto } from "./exections.js";
+
 export function creatProductElement(product) {
 
+    
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("show-products-card");
     cardContainer.dataset.productId = product.id
 
     const info = `
                     <div class="show-products-card-img">
-                        <img src="${product.availableOptions[0].optionImages[0]}" alt="${product.productName}">
+                        <img src="${exeptions.includes(product.availableOptions[0].optionImages[0]) ? noPhoto : product.availableOptions[0].optionImages[0]}" alt="${product.productName}">
                     </div>
                     <div class="show-products-card-name">${product.productName}</div>
                     <div class="show-products-card-stars">
