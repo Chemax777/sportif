@@ -1195,14 +1195,12 @@ input[value="SUBSCRIBE"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: none; */
 }
 
 .modal-product-about {
   box-sizing: border-box;
   padding: 2rem;
   max-width: 80%;
-  /* height: 90%; */
   min-height: 500px;
   max-height: 90%;
   background-color: white;
@@ -1398,6 +1396,56 @@ input[value="SUBSCRIBE"] {
 .filter {
   filter: blur(.8px) opacity(.6);
   border: solid 1px red;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-product-about {
+    padding: 1.5rem;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-image-main {
+    padding: 65% 0 0 0;
+    width: 70%;
+  }
+
+  .modal-image-main img {
+    height: 100%;
+  }
+
+  .modal-product-description {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .modal-image-secondary {
+    display: none;
+  }
+
+  .modal-product-stars {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .modal-image-main {
+    padding: 80% 0 0 0;
+    width: 90%;
+  }
+
+  .modal-product-name {
+    font-size: 4rem;
+  }
+
+  .modal-shipping div>img {
+    width: 100%;
+  }
 }
 
 /* -----------------------CART PAGE--------------------------------- */
