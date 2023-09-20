@@ -169,7 +169,7 @@ function showModalContent(itemToShow = {}) {
                         <div class="color-wrapper">
                             ${itemToShow.availableOptions.map((el) => {
     return `<div class="modal-color" data-id="${el.option_id}" style ="background-color:#${el.optionColorCode}"></div>`
-  })
+  }).join('')
     }
                         </div>
                     </div>
@@ -268,7 +268,7 @@ document.querySelector('.modal').addEventListener('click', (e) => {
     priceIdToinsert = curOption.prices.sort((a, b) => a.size > b.size ? 1 : -1)
       .map((el) => {
         return `<div class = "modal-size" data-id = "${el.price_id}">${el.size}</div>`
-      })
+      }).join('')
     document.querySelector('.size-wrapper')
       .innerHTML = ''
     document.querySelector('.size-wrapper')

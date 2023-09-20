@@ -98,7 +98,7 @@ export function showModalContent(itemToShow = {}) {
                         <div class="color-wrapper">
                             ${itemToShow.availableOptions.map((el) => {
         return `<div class="modal-color" data-id="${el.option_id}" style ="background-color:#${el.optionColorCode}"></div>`
-    })
+    }).join('')
         }
                         </div>
                     </div>
@@ -127,8 +127,8 @@ export function showModalContent(itemToShow = {}) {
                 </div>
             </div>
             <div class="modal-image-secondary">
-                <div><img src="${itemToShow.availableOptions[0].optionImages[1]}" alt="img"></div>
-                <div><img src="${itemToShow.availableOptions[0].optionImages[2]}" alt="img"></div>
+                <div><img src="${itemToShow.availableOptions[0].optionImages[1] ? itemToShow.availableOptions[0].optionImages[1] : noPhoto}" alt="img"></div>
+                <div><img src="${itemToShow.availableOptions[0].optionImages[2] ? itemToShow.availableOptions[0].optionImages[2] : noPhoto}" alt="img"></div>
             </div>
             <div class="modal-shipping">
                 <div><img src="/img/SVG/shopping.svg" alt=""></div>
@@ -150,22 +150,6 @@ const productToServer = {
     price_id: "",
     quantity: 1,
 }
-
-
-// document.querySelector(".modal").addEventListener("click", e => {
-//     if (e.target.classList.contains("add-to-bag") || e.target.closest(".add-to-bag")) {
-//         productToServer.product_id = currentProduct.id
-//         if (productToServer.product_id !== "" && productToServer.option_id !== "" && productToServer.price_id !== "") {
-//             postData(urlAdd, "POST", productToServer)
-//             clearObject(productToServer)
-//             closeModal()
-//             // alert("Товар успішно додано до корзини.")
-//             document.location.reload();
-//         } else {
-//             alert("Оберіть, будь ласка, колір та розмір!")
-//         }
-//     }
-// })
 
 
 // додати в корзину товар з модального вікна, кнопка ADD TO BAG
@@ -212,7 +196,7 @@ document.querySelector('.modal').addEventListener('click', (e) => {
         priceIdToinsert = curOption.prices.sort((a, b) => a.size > b.size ? 1 : -1)
             .map((el) => {
                 return `<div class = "modal-size" data-id = "${el.price_id}">${el.size}</div>`
-            })
+            }).join('')
         document.querySelector('.size-wrapper')
             .innerHTML = ''
         document.querySelector('.size-wrapper')

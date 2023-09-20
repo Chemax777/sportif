@@ -2,7 +2,7 @@ import { exeptions, noPhoto } from "./exections.js";
 
 export function creatProductElement(product) {
 
-    
+
     const cardContainer = document.createElement("div");
     cardContainer.classList.add("show-products-card");
     cardContainer.dataset.productId = product.id
@@ -20,7 +20,7 @@ export function creatProductElement(product) {
                     ${product.availableOptions.map((el) => {
         return `<div data-id="${el.option_id}" style ="background-color:#${el.optionColorCode}"></div>`
 
-    })
+    }).join('')
         }
                     </div>
                     <div class="add-to-cart">
