@@ -443,6 +443,7 @@ a {
   margin: 0 20px;
   padding: 1rem;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .show-products-card {
